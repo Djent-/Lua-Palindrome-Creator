@@ -7,8 +7,10 @@ Takes a single string as an argument, and will return the longest panindrome tha
 
 Example usage:
 
-print(createPalindrome("racecar")) 	
-  -> "racecar"
+print(createPalindrome("racecar")) 
+
+-> "racecar"
 
 print(createPalindrome("hello"))
-  -> "lol"
+
+-> "lol"
