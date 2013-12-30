@@ -9,5 +9,6 @@ Example usage:
 
 print(createPalindrome("racecar")) 	
   -> "racecar"
+
 print(createPalindrome("hello"))
   -> "lol"
