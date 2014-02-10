@@ -1,6 +1,7 @@
 --[[
 Port of the Python code at http://codegolf.stackexchange.com/a/16454 by jcw
 to Lua, on this day December 30th 2013 CE at 2:48 PM EST by Patrick Hurd.
+Updated on this day February 10th 2014 CE at 10:09 AM EST by Patrick Hurd.
 
 Takes a single string as an argument, and will return the longest panindrome
 that can be created using the characters contained in the string. The function
@@ -21,8 +22,7 @@ print(createPalindrome("hello"))
 function createPalindrome(str)
 	if type(str) ~= "string" then return "no string" end
 	if #str == 0 then return "" end
-	charList = {}
-	occurances = {}
+	charList, occurances = {}, {}
 	for x = 1, string.len(str) do
 		currentChar = string.char(string.byte(string.sub(str,x,x)))
 		if not occurCheck_c(charList, currentChar) then
@@ -34,9 +34,7 @@ function createPalindrome(str)
 		end
 	end
 	if sum(occurances) == #occurances then return charList[1] end
-	first = ""
-	second = ""
-	middle = ""
+	first, second, middle = "", "", ""
 	for i, v in ipairs(charList) do
 		occ = math.floor(occurances[i]/2)
 		first = first .. string.rep(v, occ) --v rather than charList[i]
