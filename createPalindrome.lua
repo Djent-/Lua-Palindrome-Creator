@@ -22,9 +22,9 @@ print(createPalindrome("hello"))
 function createPalindrome(str)
 	if type(str) ~= "string" then return "no string" end
 	if #str == 0 then return "" end
-	charList, occurances = {}, {}
+	local charList, occurances = {}, {}
 	for x = 1, string.len(str) do
-		currentChar = string.char(string.byte(string.sub(str,x,x)))
+		local currentChar = string.char(string.byte(string.sub(str,x,x)))
 		if not occurCheck_c(charList, currentChar) then
 			charList[#charList+1] = currentChar
 			occurances[#occurances+1] = 1
@@ -34,9 +34,9 @@ function createPalindrome(str)
 		end
 	end
 	if sum(occurances) == #occurances then return charList[1] end
-	first, second, middle = "", "", ""
+	local first, second, middle = "", "", ""
 	for i, v in ipairs(charList) do
-		occ = math.floor(occurances[i]/2)
+		local occ = math.floor(occurances[i]/2)
 		first = first .. string.rep(v, occ) --v rather than charList[i]
 		second = second .. string.rep(v, occ)
 		if occurances[i]%2 ~= 0 then
@@ -49,7 +49,7 @@ end
 function sum(array)
 	if not array then return 0 end
 	if #array == 0 then return 0 end
-	total = 0
+	local total = 0
 	for x = 1, #array do
 		total = total + array[x]
 	end
